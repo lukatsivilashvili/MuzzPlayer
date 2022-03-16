@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/bottom_navbar_corners.xml" value="0.399" />
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/bottom_navbar_selector.xml" value="0.3995" />
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.238" />
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/ic_home.xml" value="0.238" />
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/ic_library.xml" value="0.3845" />
+        <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/ic_search.xml" value="0.3995" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/layout/activity_main2.xml" value="0.55" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/layout/fragment_home.xml" value="0.55" />
