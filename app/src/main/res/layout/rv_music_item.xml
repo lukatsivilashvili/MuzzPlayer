@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp">
+
+    <ImageView
+        android:id="@+id/ivMusicItem"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:fontFamily="@font/spartan_semibold"
+        android:id="@+id/tvMusicTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:text="Redbone"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@id/ivMusicItem"
+        app:layout_constraintTop_toTopOf="@id/ivMusicItem" />
+
+    <TextView
+        android:id="@+id/tvMusicArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:text="Childish Gambino"
+        android:fontFamily="@font/spartan_light"
+        android:textSize="11sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/ivMusicItem"
+        app:layout_constraintStart_toEndOf="@id/ivMusicItem" />
+
+    <ImageView
+        android:id="@+id/ivMusicItemMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMusicItemLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/ivMusicItemMore"
+        app:layout_constraintEnd_toStartOf="@id/ivMusicItemMore"
+        app:layout_constraintTop_toTopOf="@id/ivMusicItemMore"
+        android:textSize="11sp"
+        android:fontFamily="@font/spartan_semibold"
+        android:textColor="@color/white"
+        android:text="3:34"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
