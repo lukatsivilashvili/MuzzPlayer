@@ -1,5 +1,6 @@
 package com.luka.muzzplayer
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main2) as NavHostFragment
         val navController = navHostFragment.navController
-
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_search, R.id.navigation_library
@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(getColor(R.color.bgNavbar)))
 
         val radius = resources.getDimension(R.dimen.radius_large)
 
