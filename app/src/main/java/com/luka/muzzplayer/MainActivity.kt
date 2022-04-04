@@ -38,10 +38,11 @@ class MainActivity : AppCompatActivity() {
         setUpNavbar()
     }
 
-    private fun setUpNavbar(){
+    private fun setUpNavbar() {
         val navView: BottomNavigationView = binding.navView
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main2) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main2) as NavHostFragment
         val navController = navHostFragment.navController
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -56,8 +57,14 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationViewBackground = navView.background as MaterialShapeDrawable
         bottomNavigationViewBackground.shapeAppearanceModel =
             bottomNavigationViewBackground.shapeAppearanceModel.toBuilder()
-                .setTopRightCorner(CornerFamily.ROUNDED, resources.getDimension(R.dimen.radius_large))
-                .setTopLeftCorner(CornerFamily.ROUNDED, resources.getDimension(R.dimen.radius_large))
+                .setTopRightCorner(
+                    CornerFamily.ROUNDED,
+                    resources.getDimension(R.dimen.radius_large)
+                )
+                .setTopLeftCorner(
+                    CornerFamily.ROUNDED,
+                    resources.getDimension(R.dimen.radius_large)
+                )
                 .build()
     }
 
@@ -72,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    private fun requestPermission(view:View){
+    private fun requestPermission(view: View) {
         when {
             ContextCompat.checkSelfPermission(
                 this,
@@ -84,6 +91,15 @@ class MainActivity : AppCompatActivity() {
                     Snackbar.LENGTH_INDEFINITE,
                     getString(R.string.ok)
                 ) {}
+            }
+
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_DENIED -> {
+                requestPermissionLauncher.launch(
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                )
             }
 
             ActivityCompat.shouldShowRequestPermissionRationale(
