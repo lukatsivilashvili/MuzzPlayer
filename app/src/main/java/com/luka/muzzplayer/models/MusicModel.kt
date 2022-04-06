@@ -5,5 +5,6 @@ data class MusicModel(
     val title: String,
     val album: String,
     val artist:String,
-    val duration:Long = 0
+    val duration:Long = 0,
+    val uri:String
 )

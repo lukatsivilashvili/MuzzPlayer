@@ -2,6 +2,7 @@ package com.luka.muzzplayer.ui.library
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luka.muzzplayer.models.MusicModel
@@ -9,6 +10,7 @@ import com.luka.muzzplayer.R
 import com.luka.muzzplayer.adapters.LibraryRecyclerAdapter
 import com.luka.muzzplayer.base.BaseFragment
 import com.luka.muzzplayer.databinding.FragmentLibraryBinding
+import com.luka.muzzplayer.util.OnItemClickListener
 
 class LibraryFragment :
     BaseFragment<FragmentLibraryBinding>(FragmentLibraryBinding::inflate) {
@@ -25,7 +27,12 @@ class LibraryFragment :
     private fun initRecycler(){
 
 
-        libraryAdapter = LibraryRecyclerAdapter()
+        libraryAdapter = LibraryRecyclerAdapter(object: OnItemClickListener{
+            override fun clickItem(position: Int, title:String) {
+                Toast.makeText(requireContext(), title, Toast.LENGTH_SHORT).show()
+            }
+
+        })
         binding.rvLibrary.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvLibrary.adapter = libraryAdapter
 

@@ -1,17 +1,21 @@
 package com.luka.muzzplayer.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.luka.muzzplayer.models.MusicModel
 import com.luka.muzzplayer.databinding.RvMusicItemBinding
+import com.luka.muzzplayer.util.OnItemClickListener
+import com.luka.muzzplayer.util.extensions.loadDuration
+import com.luka.muzzplayer.util.extensions.loadFromUri
 
-class LibraryRecyclerAdapter : RecyclerView.Adapter<LibraryRecyclerAdapter.MusicItemViewHolder>() {
+class LibraryRecyclerAdapter(private val itemClickListener:OnItemClickListener) : RecyclerView.Adapter<LibraryRecyclerAdapter.MusicItemViewHolder>() {
 
     val musicList = mutableListOf<MusicModel>()
 
     inner class MusicItemViewHolder(private val binding: RvMusicItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         private lateinit var model: MusicModel
 
@@ -19,9 +23,15 @@ class LibraryRecyclerAdapter : RecyclerView.Adapter<LibraryRecyclerAdapter.Music
             model = musicList[adapterPosition]
             binding.tvMusicTitle.text = model.title
             binding.tvMusicArtist.text = model.artist
-            binding.tvMusicItemLength.text = model.duration.toString()
+            binding.tvMusicItemLength.loadDuration(model.duration)
+            binding.ivMusicItem.loadFromUri(model.uri)
+            binding.root.setOnClickListener(this)
 
 
+        }
+
+        override fun onClick(p0: View?) {
+            itemClickListener.clickItem(adapterPosition, model.title)
         }
 
     }

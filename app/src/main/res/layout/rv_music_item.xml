@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:layout_marginBottom="15dp">
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="12dp">
 
     <ImageView
         android:id="@+id/ivMusicItem"
@@ -26,9 +26,11 @@
         android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvMusicArtist"
         app:layout_constraintEnd_toStartOf="@+id/tvMusicItemLength"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/ivMusicItem"
-        app:layout_constraintTop_toTopOf="@id/ivMusicItem" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvMusicArtist"
@@ -42,9 +44,11 @@
         android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@id/ivMusicItem"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvMusicItemLength"
-        app:layout_constraintStart_toEndOf="@id/ivMusicItem" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/ivMusicItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvMusicTitle" />
 
     <ImageView
         android:id="@+id/ivMusicItemMore"

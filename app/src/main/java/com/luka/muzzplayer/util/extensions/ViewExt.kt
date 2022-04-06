@@ -1,4 +1,4 @@
-package com.luka.muzzplayer.extensions
+package com.luka.muzzplayer.util.extensions
 
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
