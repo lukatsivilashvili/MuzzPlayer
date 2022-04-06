@@ -2,6 +2,7 @@ package com.luka.muzzplayer.ui.library
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.net.Uri
 import android.provider.MediaStore
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -34,7 +35,8 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ALBUM,
             MediaStore.Audio.Media.ARTIST,
-            MediaStore.Audio.Media.DURATION
+            MediaStore.Audio.Media.DURATION,
+            MediaStore.Audio.Media.ALBUM_ID
         )
 
         val query = context.contentResolver.query(
@@ -55,6 +57,7 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
                 cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
             val durationColumn =
                 cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION)
+            val albumIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)
 
             while (cursor.moveToNext()) {
                 val id = cursor.getString(idColumn)
@@ -62,7 +65,10 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
                 val album = cursor.getString(albumColumn)
                 val artist = cursor.getString(artistColumn)
                 val duration = cursor.getLong(durationColumn)
-                val musicItem = MusicModel(id, title, album, artist, duration)
+                val albumId = cursor.getLong(albumIdColumn).toString()
+                val uri = Uri.parse("content://media/external/audio/albumart")
+                val artUri = Uri.withAppendedPath(uri, albumId).toString()
+                val musicItem = MusicModel(id, title, album, artist, duration, artUri)
                 tempList.add(musicItem)
             }
         }
