@@ -18,9 +18,8 @@ class LibraryRecyclerAdapter : RecyclerView.Adapter<LibraryRecyclerAdapter.Music
         fun bind() {
             model = musicList[adapterPosition]
             binding.tvMusicTitle.text = model.title
-            binding.tvMusicArtist.text = model.artistName
-            binding.tvMusicItemLength.text = model.length
-            binding.ivMusicItem.setImageResource(model.artID)
+            binding.tvMusicArtist.text = model.artist
+            binding.tvMusicItemLength.text = model.duration.toString()
 
 
         }

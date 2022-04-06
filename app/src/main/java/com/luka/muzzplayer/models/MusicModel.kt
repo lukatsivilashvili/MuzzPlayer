@@ -1,8 +1,10 @@
 package com.luka.muzzplayer.models
 
 data class MusicModel(
-    val artID: Int,
+    val id:String,
     val title: String,
-    val artistName: String,
-    val length:String
+    val album: String,
+    val artist:String,
+    val duration:Long = 0,
+    val path:String
 )
