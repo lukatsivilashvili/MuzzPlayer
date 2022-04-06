@@ -2,6 +2,7 @@ package com.luka.muzzplayer.ui.library
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luka.muzzplayer.models.MusicModel
 import com.luka.muzzplayer.R
@@ -13,33 +14,26 @@ class LibraryFragment :
     BaseFragment<FragmentLibraryBinding>(FragmentLibraryBinding::inflate) {
 
     private lateinit var libraryAdapter:LibraryRecyclerAdapter
+    private val viewModel: LibraryFragmentViewModel by viewModels()
 
     override fun initialize(inflater: LayoutInflater, container: ViewGroup?) {
+        viewModel.init()
         initRecycler()
+        setObservers()
     }
 
     private fun initRecycler(){
-        val musicList = mutableListOf<MusicModel>()
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
-        musicList.add(MusicModel(R.drawable.rectangle, "Redbone", "Childish gambino", "3:34"))
 
 
         libraryAdapter = LibraryRecyclerAdapter()
         binding.rvLibrary.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvLibrary.adapter = libraryAdapter
-        libraryAdapter.setData(musicList)
+
+    }
+
+    private fun setObservers(){
+        viewModel.musicCollection.observe(viewLifecycleOwner){musicList ->
+            libraryAdapter.setData(musicList.toMutableList())
+        }
     }
 }
