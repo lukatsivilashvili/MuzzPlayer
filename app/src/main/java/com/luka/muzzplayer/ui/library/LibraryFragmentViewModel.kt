@@ -34,8 +34,7 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ALBUM,
             MediaStore.Audio.Media.ARTIST,
-            MediaStore.Audio.Media.DURATION,
-            MediaStore.Audio.Media.DATA
+            MediaStore.Audio.Media.DURATION
         )
 
         val query = context.contentResolver.query(
@@ -56,8 +55,6 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
                 cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
             val durationColumn =
                 cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION)
-            val pathColumn =
-                cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
 
             while (cursor.moveToNext()) {
                 val id = cursor.getString(idColumn)
@@ -65,12 +62,8 @@ class LibraryFragmentViewModel(application: Application) : AndroidViewModel(appl
                 val album = cursor.getString(albumColumn)
                 val artist = cursor.getString(artistColumn)
                 val duration = cursor.getLong(durationColumn)
-                val path = cursor.getString(pathColumn)
-                val musicItem = MusicModel(id, title, album, artist, duration, path)
-                val file = File(musicItem.path)
-                if (file.exists()) {
-                    tempList.add(musicItem)
-                }
+                val musicItem = MusicModel(id, title, album, artist, duration)
+                tempList.add(musicItem)
             }
         }
         _musicCollection.postValue(tempList)
