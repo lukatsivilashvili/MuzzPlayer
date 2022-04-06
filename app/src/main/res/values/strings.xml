@@ -10,4 +10,5 @@
     <string name="permission_required">Storage access is required to display the music library.</string>
     <string name="ok">OK</string>
     <string name="permission_granted">Permission is granted. You can access the storage now.</string>
+    <string name="permission_not_granted">Permission is not granted. You can\'t access the storage.</string>
 </resources>

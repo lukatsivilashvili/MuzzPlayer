@@ -15,27 +15,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:fontFamily="@font/spartan_semibold"
         android:id="@+id/tvMusicTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:text="Redbone"
+        android:layout_marginEnd="22dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/spartan_semibold"
+        android:maxLines="1"
+        android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvMusicItemLength"
         app:layout_constraintStart_toEndOf="@id/ivMusicItem"
         app:layout_constraintTop_toTopOf="@id/ivMusicItem" />
 
     <TextView
         android:id="@+id/tvMusicArtist"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:text="Childish Gambino"
+        android:layout_marginEnd="22dp"
+        android:ellipsize="end"
         android:fontFamily="@font/spartan_light"
-        android:textSize="11sp"
+        android:maxLines="1"
+        android:textAlignment="viewStart"
         android:textColor="@color/white"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@id/ivMusicItem"
+        app:layout_constraintEnd_toStartOf="@+id/tvMusicItemLength"
         app:layout_constraintStart_toEndOf="@id/ivMusicItem" />
 
     <ImageView
@@ -52,12 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/ivMusicItemMore"
-        app:layout_constraintEnd_toStartOf="@id/ivMusicItemMore"
-        app:layout_constraintTop_toTopOf="@id/ivMusicItemMore"
-        android:textSize="11sp"
         android:fontFamily="@font/spartan_semibold"
         android:textColor="@color/white"
-        android:text="3:34"/>
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivMusicItemMore"
+        app:layout_constraintEnd_toStartOf="@id/ivMusicItemMore"
+        app:layout_constraintTop_toTopOf="@id/ivMusicItemMore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
