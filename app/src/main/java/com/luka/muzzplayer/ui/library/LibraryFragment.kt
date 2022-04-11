@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.luka.muzzplayer.models.MusicModel
-import com.luka.muzzplayer.R
 import com.luka.muzzplayer.adapters.LibraryRecyclerAdapter
 import com.luka.muzzplayer.base.BaseFragment
 import com.luka.muzzplayer.databinding.FragmentLibraryBinding

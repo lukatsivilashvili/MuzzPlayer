@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luka.muzzplayer.models.MusicModel
 import com.luka.muzzplayer.databinding.RvMusicItemBinding
+import com.luka.muzzplayer.models.MusicModel
 import com.luka.muzzplayer.util.OnItemClickListener
-import com.luka.muzzplayer.util.extensions.loadDuration
 import com.luka.muzzplayer.util.extensions.loadFromUri
 
 class LibraryRecyclerAdapter(private val itemClickListener:OnItemClickListener) : RecyclerView.Adapter<LibraryRecyclerAdapter.MusicItemViewHolder>() {
@@ -23,7 +22,7 @@ class LibraryRecyclerAdapter(private val itemClickListener:OnItemClickListener) 
             model = musicList[adapterPosition]
             binding.tvMusicTitle.text = model.title
             binding.tvMusicArtist.text = model.artist
-            binding.tvMusicItemLength.loadDuration(model.duration)
+            binding.tvMusicItemLength.text = model.formatDuration(model.duration)
             binding.ivMusicItem.loadFromUri(model.uri)
             binding.root.setOnClickListener(this)
 
