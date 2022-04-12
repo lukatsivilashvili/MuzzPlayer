@@ -20,7 +20,9 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.snackbar.Snackbar
 import com.luka.muzzplayer.databinding.ActivityMainBinding
 import com.luka.muzzplayer.util.extensions.showSnackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
