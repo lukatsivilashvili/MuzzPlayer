@@ -1,20 +1,19 @@
 package com.luka.muzzplayer.ui.library
 
 import android.annotation.SuppressLint
-import android.app.Application
+import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.luka.muzzplayer.models.MusicModel
-import java.io.File
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@HiltViewModel
 @SuppressLint("StaticFieldLeak")
-class LibraryFragmentViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val context = getApplication<Application>()
+class LibraryFragmentViewModel @Inject constructor(private val context:Context) : ViewModel() {
 
     private val _musicCollection = MutableLiveData<ArrayList<MusicModel>>()
     val musicCollection: LiveData<ArrayList<MusicModel>> = _musicCollection

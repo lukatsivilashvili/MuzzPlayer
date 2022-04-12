@@ -9,7 +9,9 @@ import com.luka.muzzplayer.adapters.LibraryRecyclerAdapter
 import com.luka.muzzplayer.base.BaseFragment
 import com.luka.muzzplayer.databinding.FragmentLibraryBinding
 import com.luka.muzzplayer.util.OnItemClickListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LibraryFragment :
     BaseFragment<FragmentLibraryBinding>(FragmentLibraryBinding::inflate) {
 
