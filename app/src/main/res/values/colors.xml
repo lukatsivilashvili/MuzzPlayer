@@ -11,4 +11,5 @@
 <!--my colors-->
     <color name="bgNavbar">#41464B</color>
     <color name="bgLibrary">#26292d</color>
+    <color name="bgIconPlayPause">#0095E9</color>
 </resources>
