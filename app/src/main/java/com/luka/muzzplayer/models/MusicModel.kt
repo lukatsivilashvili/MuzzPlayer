@@ -1,14 +1,16 @@
 package com.luka.muzzplayer.models
 
+import android.net.Uri
 import java.util.concurrent.TimeUnit
 
 data class MusicModel(
-    val id: String,
+    val id: Long,
     val title: String,
     val album: String,
     val artist: String,
     val duration: Long = 0,
-    val uri: String
+    val uri: Uri,
+    val artUri: String
 ){
     fun formatDuration(duration: Long): String {
         val minutes = TimeUnit.MINUTES.convert(duration, TimeUnit.MILLISECONDS)
