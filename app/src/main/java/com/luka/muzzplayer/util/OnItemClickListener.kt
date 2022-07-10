@@ -1,7 +1,9 @@
 package com.luka.muzzplayer.util
 
+import android.net.Uri
+
 interface OnItemClickListener {
 
-    fun clickItem(position:Int, title:String)
+    fun clickItem(uri:Uri, title:String)
 
 }

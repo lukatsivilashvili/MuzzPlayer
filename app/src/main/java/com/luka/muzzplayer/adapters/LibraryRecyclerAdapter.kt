@@ -19,18 +19,18 @@ class LibraryRecyclerAdapter(private val itemClickListener:OnItemClickListener) 
         private lateinit var model: MusicModel
 
         fun bind() {
-            model = musicList[adapterPosition]
+            model = musicList[bindingAdapterPosition]
             binding.tvMusicTitle.text = model.title
             binding.tvMusicArtist.text = model.artist
             binding.tvMusicItemLength.text = model.formatDuration(model.duration)
-            binding.ivMusicItem.loadFromUri(model.uri)
+            binding.ivMusicItem.loadFromUri(model.artUri)
             binding.root.setOnClickListener(this)
 
 
         }
 
         override fun onClick(p0: View?) {
-            itemClickListener.clickItem(adapterPosition, model.title)
+            itemClickListener.clickItem(model.uri, model.title)
         }
 
     }

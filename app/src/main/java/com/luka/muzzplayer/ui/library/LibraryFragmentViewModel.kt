@@ -1,6 +1,7 @@
 package com.luka.muzzplayer.ui.library
 
 import android.annotation.SuppressLint
+import android.content.ContentUris
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 @SuppressLint("StaticFieldLeak")
-class LibraryFragmentViewModel @Inject constructor(private val context:Context) : ViewModel() {
+class LibraryFragmentViewModel @Inject constructor(private val context: Context) : ViewModel() {
 
     private val _musicCollection = MutableLiveData<ArrayList<MusicModel>>()
     val musicCollection: LiveData<ArrayList<MusicModel>> = _musicCollection
@@ -59,15 +60,19 @@ class LibraryFragmentViewModel @Inject constructor(private val context:Context) 
             val albumIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)
 
             while (cursor.moveToNext()) {
-                val id = cursor.getString(idColumn)
+                val id = cursor.getLong(idColumn)
                 val title = cursor.getString(titleColumn)
                 val album = cursor.getString(albumColumn)
                 val artist = cursor.getString(artistColumn)
                 val duration = cursor.getLong(durationColumn)
                 val albumId = cursor.getLong(albumIdColumn).toString()
+                val contentUri: Uri = ContentUris.withAppendedId(
+                    MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                    id
+                )
                 val uri = Uri.parse("content://media/external/audio/albumart")
                 val artUri = Uri.withAppendedPath(uri, albumId).toString()
-                val musicItem = MusicModel(id, title, album, artist, duration, artUri)
+                val musicItem = MusicModel(id, title, album, artist, duration, contentUri, artUri)
                 tempList.add(musicItem)
             }
         }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/MuzzPlayer/app/src/main/res/layout/activity_player.xml" value="0.33" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/bottom_navbar_corners.xml" value="0.399" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/bottom_navbar_selector.xml" value="0.3995" />
         <entry key="..\:/aaGitRep/MobAppsLearning/MuzzPlayer/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.238" />
